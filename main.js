@@ -47,6 +47,11 @@ function updateProgress() {
   timestamp.innerHTML = `${minutes}:${seconds}`;
 }
 
+// change video time
+function changeVideoProgress() {
+  video.currentTime = (+progress.value * video.duration) / 100;
+}
+
 // EventListeners
 
 video.addEventListener("click", toggleVideoStatus);
@@ -56,3 +61,5 @@ video.addEventListener("timeupdate", updateProgress);
 
 play.addEventListener("click", toggleVideoStatus);
 stop.addEventListener("click", stopVideo);
+
+progress.addEventListener("change", changeVideoProgress);
