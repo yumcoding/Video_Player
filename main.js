@@ -13,14 +13,24 @@ function toggleVideoStatus() {
   }
 }
 
+// stop video
 function stopVideo() {
   video.pause();
   video.currentTime = 0;
 }
 
+function changeIcon() {
+  if (video.paused) {
+    play.innerHTML = '<i class="fa fa-play fa-2x"></i>';
+  } else {
+    play.innerHTML = '<i class="fa fa-pause fa-2x"></i>';
+  }
+}
 // EventListeners
 
 video.addEventListener("click", toggleVideoStatus);
+video.addEventListener("play", changeIcon);
+video.addEventListener("pause", changeIcon);
 
 play.addEventListener("click", toggleVideoStatus);
 stop.addEventListener("click", stopVideo);
